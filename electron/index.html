@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Hola Mundo  en Electron JS
+	</title>
+</head>
+<body>
+<H1> HOLA  MUNDO  !!! :) </H1>
+<p id="content"></p>
+ <script>
+            const {BrowserWindow} = require('electron').remote
+            const { readFile} = require ('fs');
+            const path = require('path');
+            const { resolve}= require ('path');
+
+            readFile(resolve(`${__dirname}/package.json`),'utf8', (error, data)=>{
+                if (error){
+                    console.error(error);
+                    return error;
+                }
+                return document.getElementById('content').innerHTML = data;
+            });
+            </script>   
+</body>
+</html>
